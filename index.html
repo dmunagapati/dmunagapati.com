@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file -->
+  <title>Personal Finance Dashboard</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Personal Finance Dashboard</h1>
+    </header>
+
+    <!-- Input section where the user adds expenses, savings, and budgets -->
+    <section id="input-section">
+      <h2>Input Data</h2>
+      <form id="finance-form">
+        <input type="text" id="category" placeholder="Category (e.g., Food)" required>
+        <input type="number" id="amount" placeholder="Amount" required>
+        <input type="date" id="date" required>
+        <button type="submit">Add</button>
+      </form>
+    </section>
+
+    <!-- Area to show charts with spending trends -->
+    <section id="charts-section">
+      <h2>Spending Trends</h2>
+      <canvas id="spendingChart"></canvas>
+      <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </section>
+
+    <!-- Section to filter by categories (like Food, Travel) -->
+    <section id="filters-section">
+      <h2>Filter by Category</h2>
+      <select id="category-filter">
+        <option value="all">All</option>
+        <option value="Food">Food</option>
+        <option value="Travel">Travel</option>
+        <!-- Add more options as needed -->
+      </select>
+    </section>
+  </div>
+
+  <script src="script.js"></script> <!-- Link to your JavaScript file -->
+</body>
+</html>
