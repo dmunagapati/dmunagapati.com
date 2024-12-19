@@ -110,5 +110,11 @@ canvas {
     z-index: -1; /* Keeps canvas in the background */
 }
 
+a {
+    color: #00ff00;
+    text-decoration: none;
+}
 
-
+a:hover {
+    text-decoration: underline;
+}
