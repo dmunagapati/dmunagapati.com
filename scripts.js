@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         clearInterval(interval);
                         el.removeChild(cursorSpan); // Remove the cursor after typing finishes
                     }
-                }, 25); // Typing speed
+                }, 23); // Typing speed
             }, delay);
 
             delay += text.length * 15; // Adjust total delay per text element
