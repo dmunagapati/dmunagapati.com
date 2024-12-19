@@ -194,3 +194,15 @@ canvas {
     margin: 10px 0; /* Add space between paragraphs */
 }
 
+/* Default state for the rabbit icon */
+img[alt="Follow the White Rabbit"] {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out; /* Slow fade-in and scale-up */
+}
+
+/* Make the rabbit icon visible during animation */
+img[alt="Follow the White Rabbit"].visible {
+    opacity: 1;
+    transform: scale(1);
+}

@@ -52,21 +52,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         clearInterval(interval);
                         el.removeChild(cursorSpan); // Remove the cursor after typing finishes
                     }
-                }, 10); // Typing speed
+                }, 25); // Typing speed
             }, delay);
 
-            delay += text.length * 10; // Adjust total delay per text element
+            delay += text.length * 15; // Adjust total delay per text element
         }
     });
 
-    // Animate the last image (rabbit icon) at the very end
     const rabbitIcon = document.querySelector('img[alt="Follow the White Rabbit"]');
-    if (rabbitIcon) {
-        setTimeout(() => {
-            rabbitIcon.style.opacity = '1';
-            rabbitIcon.style.transform = 'scale(1)';
-        }, delay); // Delay based on total animation time
-    }
+if (rabbitIcon) {
+    setTimeout(() => {
+        rabbitIcon.classList.add('visible'); // Trigger the fade-in animation
+    }, delay); // Delay based on the animation sequence
+}
+
 
     // Ensure "Projects" section is visible during animations
     const portfolioSection = document.getElementById('portfolio');
