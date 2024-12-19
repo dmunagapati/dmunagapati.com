@@ -1,34 +1,79 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const typewriterElements = document.querySelectorAll('.typewriter, .typewriter-paragraph');
+    const typewriterElements = document.querySelectorAll(
+        '.typewriter, .typewriter-paragraph, .separator img, .col img, #contact a'
+    );
 
     let delay = 0;
 
-    typewriterElements.forEach((el, index) => {
-        const text = el.textContent;
-        el.textContent = '';
-        let charIndex = 0;
+    typewriterElements.forEach((el) => {
+        if (el.tagName === 'IMG') {
+            // Handle images and GIFs (fade in quickly)
+            setTimeout(() => {
+                el.style.opacity = '1';
+                el.style.transform = 'scale(1)';
+            }, delay);
+            delay += 500; // Quick fade-in for images/GIFs
+        } else if (el.tagName === 'A') {
+            // Handle links with typewriter effect
+            const text = el.textContent; // Preserve text
+            el.textContent = ''; // Clear text for typing animation
+            el.style.display = 'inline-block'; // Ensure proper visibility during animation
+            let charIndex = 0;
 
-        setTimeout(() => {
-            const cursorSpan = document.createElement('span');
-            cursorSpan.style.borderRight = '0.15em solid #00ff00';
-            cursorSpan.style.display = 'inline';
-            el.appendChild(cursorSpan);
+            setTimeout(() => {
+                const interval = setInterval(() => {
+                    if (charIndex < text.length) {
+                        el.textContent += text.charAt(charIndex);
+                        charIndex++;
+                    } else {
+                        clearInterval(interval);
+                    }
+                }, 50); // Typing speed for links
+            }, delay);
 
-            const interval = setInterval(() => {
-                if (charIndex < text.length) {
-                    el.insertBefore(document.createTextNode(text.charAt(charIndex)), cursorSpan);
-                    charIndex++;
-                } else {
-                    clearInterval(interval);
-                    el.removeChild(cursorSpan);
-                }
-            }, 25);
-        }, delay);
+            delay += text.length * 50 + 500; // Adjust delay for next element
+        } else {
+            // Handle text elements (typewriter effect)
+            const text = el.textContent; // Preserve text
+            el.textContent = ''; // Clear text for typing animation
+            let charIndex = 0;
 
-        delay += 1000;
+            setTimeout(() => {
+                const cursorSpan = document.createElement('span');
+                cursorSpan.style.borderRight = '0.15em solid #00ff00';
+                cursorSpan.style.display = 'inline';
+                el.appendChild(cursorSpan);
+
+                const interval = setInterval(() => {
+                    if (charIndex < text.length) {
+                        el.insertBefore(document.createTextNode(text.charAt(charIndex)), cursorSpan);
+                        charIndex++;
+                    } else {
+                        clearInterval(interval);
+                        el.removeChild(cursorSpan); // Remove the cursor after typing finishes
+                    }
+                }, 10); // Typing speed
+            }, delay);
+
+            delay += text.length * 10; // Adjust total delay per text element
+        }
     });
+
+    // Animate the last image (rabbit icon) at the very end
+    const rabbitIcon = document.querySelector('img[alt="Follow the White Rabbit"]');
+    if (rabbitIcon) {
+        setTimeout(() => {
+            rabbitIcon.style.opacity = '1';
+            rabbitIcon.style.transform = 'scale(1)';
+        }, delay); // Delay based on total animation time
+    }
+
+    // Ensure "Projects" section is visible during animations
+    const portfolioSection = document.getElementById('portfolio');
+    portfolioSection.style.display = 'block'; // Ensure visibility
 });
 
+// MATRIX RAIN ANIMATION
 var canvas = document.querySelector('canvas'),
     ctx = canvas.getContext('2d');
 

@@ -36,6 +36,7 @@ h1, h2, h3, p {
     word-wrap: break-word;
     display: in-line block; /* Forces elements to occupy their own line */
     margin: 0 auto; /* Center-align horizontally */
+    margin-bottom: 20px;
     letter-spacing: 0.15em;
     animation: blink-caret 0.75s step-end infinite;
 }
@@ -48,7 +49,7 @@ h1, h2, h3, p {
     font-size: 1rem; /* Adjust font size as needed */
     line-height: 1.6; /* Better readability */
     width: 100%; /* Spans the entire width of the container */
-    text-align: left; /* Aligns text to the left */
+    text-align: center; /* Aligns text to the left */
     margin: 0; /* Removes all margin for no indent */
     padding: 0; /* Removes padding, ensuring no extra space */
     text-indent: 0 !important;
@@ -110,11 +111,86 @@ canvas {
     z-index: -1; /* Keeps canvas in the background */
 }
 
-a {
-    color: #00ff00;
-    text-decoration: none;
+/* Center-aligns all project items */
+.col {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    text-align: center;  /* Ensures text is also centered */
+    margin-top: 20px; /* Adds spacing between projects */
+    margin-bottom: 20px; /* Adds spacing between projects */
 }
 
-a:hover {
-    text-decoration: underline;
+.typewriter img {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: black; /* Ensures blending if background isn't transparent */
+    border-radius: 8px; /* Optional rounded corners */
 }
+
+
+.separator img {
+    display: block;      /* Ensures the GIF is centered */
+    margin: 10px auto;
+    display: block;   /* Adds spacing above and below */
+    width: 100%;         /* Makes the GIF responsive */
+    max-width: 100px;    /* Prevents the GIF from becoming too large */
+}
+
+.typewriter.caption {
+    margin-bottom: 10px; /* Reduces space below the caption */
+}
+/* Default state for images/GIFs */
+.separator img,
+.col img {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Quick fade-in and scale-up */
+}
+
+/* Make them visible during animation */
+.separator img.visible,
+.col img.visible {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.separator:last-of-type {
+    margin-bottom: 10px; /* Reduce space below the last GIF */
+}
+
+#contact {
+    margin-top: -50px; /* Reduce space above the Contact Me section */
+    margin-bottom: 300px;
+    text-align: center; /* Ensure content is still centered */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0; /* Adjust padding for consistent spacing */
+}
+
+
+#contact .container {
+    width: 80%; /* Limit the width for readability */
+    max-width: 600px; /* Further limit width on larger screens */
+    margin: 0 auto; /* Center container horizontally */
+}
+
+#contact a {
+    display: block; /* Ensure links appear on separate lines */
+    margin-top: 10px; /* Add space between links */
+    margin-bottom: 250px;
+    font-size: 1rem; /* Adjust font size */
+    color: #00ff00; /* Match green theme */
+    text-decoration: none; /* Remove underline */
+}
+
+#contact a:hover {
+    text-decoration: underline; /* Add underline on hover for accessibility */
+}
+
+#contact .typewriter-paragraph {
+    margin: 10px 0; /* Add space between paragraphs */
+}
+
