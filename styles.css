@@ -1,0 +1,114 @@
+/* CSS for Matrix Portfolio */
+
+body {
+    font-family: 'Courier New', Courier, monospace;
+    color: #00ff00;
+    background-color: black;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    overflow-y: auto; /* Ensure scrolling for long content */
+}
+
+h1, h2, h3, p {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#portfolio h2 {
+    margin-bottom: 40px; /* Larger space below the "Projects" heading */
+}
+
+.masthead {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    text-align: center;
+    margin: 0; /* Remove default margin */
+    position: relative;
+}
+
+.typewriter {
+    overflow: hidden;
+    white-space: pre-wrap; /* Prevent wrapping during typing */
+    word-wrap: break-word;
+    display: in-line block; /* Forces elements to occupy their own line */
+    margin: 0 auto; /* Center-align horizontally */
+    letter-spacing: 0.15em;
+    animation: blink-caret 0.75s step-end infinite;
+}
+
+.typewriter-paragraph {
+    overflow: hidden;
+    white-space: pre-wrap; /* Allow wrapping for multiline text */
+    word-wrap: break-word; /* Prevent long words from breaking layout */
+    display: block; /* Ensures the paragraph occupies its own block */
+    font-size: 1rem; /* Adjust font size as needed */
+    line-height: 1.6; /* Better readability */
+    width: 100%; /* Spans the entire width of the container */
+    text-align: left; /* Aligns text to the left */
+    margin: 0; /* Removes all margin for no indent */
+    padding: 0; /* Removes padding, ensuring no extra space */
+    text-indent: 0 !important;
+}
+
+
+.body-text {
+    margin-top: 20px; /* Space below the heading */
+    font-size: 1rem;
+    color: #00ff00; /* Matches the green theme */
+    max-width: 600px; /* Limit width for readability */
+    line-height: 1.5;
+    white-space: pre-wrap; /* Allow wrapping after typing */
+    word-wrap: break-word; /* Ensure long words break properly */
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: #00ff00; }
+}
+
+.content-section {
+    padding: 50px;
+    overflow: visible; /* Ensure content inside is not clipped */
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    word-wrap: break-word; /* Prevent text overflow */
+}
+.col {
+    margin-bottom: 25px; /* Space between each project's block */
+}
+
+.caption {
+    margin-top: 10px; /* Space between project title and caption */
+    font-size: 0.9rem; /* Slightly smaller font size for captions */
+    color: #00ff00; /* Matches the green theme */
+    text-align: center; /* Keep text alignment consistent */
+}
+
+body {
+    background: #000; /* Black background for Matrix effect */
+}
+
+canvas {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keeps canvas in the background */
+}
+
+
+
