@@ -1,2 +1,2 @@
 # This is my personal portfolio.
-# dmunagapati.com
+# github.com/dmunagapati/dmunagapati.com
